@@ -1,10 +1,11 @@
 {
   "name": "@astrxd/abppack",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ABPPack JavaScript implementation",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test.js",
+    "bundle": "browserify index.js -s abppack | terser --compress --mangle -o bundle.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,9 @@
   "dependencies": {
     "buffer": "^6.0.3",
     "node-forge": "^0.10.0"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "terser": "^5.5.1"
   }
 }

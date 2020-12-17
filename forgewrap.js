@@ -82,12 +82,29 @@ function rsaEncrypt(k, x) {
 
 /**
  * Generates RSA keypair.
+ * NOTE: genKeyAsync is much much faster than this.
  * @param {number} b Bits
  * @param {number} e Exponent
  * @returns {forge.pki.rsa.KeyPair} Keypair
  */
 function rsaGenKey(b = 2048, e = 0x10001) {
     return forge.pki.rsa.generateKeyPair({bits: b, e});
+}
+
+/**
+ * Generates RSA keypair.
+ * @async
+ * @param {number} b Bits
+ * @param {number} e Exponent
+ * @returns {Promise<forge.pki.rsa.KeyPair>} Keypair
+ */
+function rsaGenKeyAsync(b = 2048, e = 0x10001) {
+    return new Promise((resolve, reject) => {
+        forge.pki.rsa.generateKeyPair({bits: b, e}, (err, keypair) => {
+            if (err) reject(err);
+            else resolve(keypair);
+        });
+    });
 }
 
 /**
@@ -173,6 +190,7 @@ module.exports = {
     },
     rsa: {
         genKey: rsaGenKey,
+        genKeyAsync: rsaGenKeyAsync,
         encrypt: rsaEncrypt,
         decrypt: rsaDecrypt
     },
