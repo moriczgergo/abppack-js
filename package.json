@@ -1,0 +1,23 @@
+{
+  "name": "@astrxd/abppack",
+  "version": "0.0.1",
+  "description": "ABPPack JavaScript implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astrxd443/abppack-js.git"
+  },
+  "author": "astrxd",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/astrxd443/abppack-js/issues"
+  },
+  "homepage": "https://github.com/astrxd443/abppack-js#readme",
+  "dependencies": {
+    "buffer": "^6.0.3",
+    "node-forge": "^0.10.0"
+  }
+}
